@@ -1,43 +1,216 @@
-/* Root CSS Variables */
+/* Import Inter for a clean, modern look */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 :root {
-    --primary-color: #217336;
-    --secondary-color: #217599;
-    --accent-color: gold;
-    --text-color: #fff;
-    --success-color: green;
-    --error-color: red;
-    --warning-color: orange;
-    --info-color: blue;
+    --sidebar-width: 280px;
+    /* Using a sophisticated Forest Green/Slate palette */
+    --primary-color: #217336; /* Deep Green */
+    --primary-hover: #1a5d2c;
+    --accent-blue: #217599;  /* Corporate Blue */
+    --bg-main: #f1f5f9;
+    --sidebar-bg: #0f172a;
+    --text-main: #334155;
+    --text-muted: #64748b;
+    --glass-bg: rgba(255, 255, 255, 0.8);
+    --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
-/* Base Styling */
-html, body { 
+
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-header {
-    background-color: var(--primary-color);
-    color: var(--text-color);
-    padding: 10px 20px;
+html { 
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+.dashboard-layout {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
-main {
-    background-color: var(--secondary-color);
-    padding: 10px 20px;
-}
-footer {
-    background-color: var(--primary-color);
-    color: var(--text-color);
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-/* Section Styles */
-section { 
+
+/* Sidebar Styling */
+.sidebar {
+    background-color: var(--sidebar-bg);
+    color: white;
+    width: var(--sidebar-width);
     height: 100vh;
-    width: auto;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem 1.5rem;
+    box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+}
+
+.sidebar h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    background: linear-gradient(to right, #ffffff, #94a3b8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.5px;
+}
+
+.sidebar nav ul {
+    list-style: none;
+}
+
+.sidebar nav a {
+    color: #94a3b8;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 0.85rem 1.25rem;
+    border-radius: 12px;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.sidebar nav a:hover, .sidebar nav a.active {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    transform: translateX(5px);
+}
+
+.sidebar nav a.active {
+    background-color: var(--primary-color);
+}
+
+/* Main Content Area */
+.main-content {
+    margin-left: var(--sidebar-width);
+    flex-grow: 1;
+    padding: 3rem 4rem;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.top-bar h2 {
+    font-weight: 700;
+    font-size: 1.85rem;
+    color: var(--sidebar-bg);
+}
+
+.user-profile {
+    background: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: var(--card-shadow);
+    cursor: pointer;
+    border: 1px solid #e2e8f0;
+}
+
+/* Card & Form Styling */
+.card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: var(--card-shadow);
+    margin-bottom: 2.5rem;
+}
+
+.card h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+    color: var(--sidebar-bg);
+}
+
+/* Pricing Grid */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+}
+
+.price-tile {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    padding: 2.5rem 1.5rem;
+    border-radius: 16px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.price-tile:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-color);
+}
+
+.price-tile h3 {
+    font-size: 1rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.price-tile p {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 0.5rem;
+    color: var(--sidebar-bg);
+}
+
+/* Form Styling */
+.login-card form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-card input {
+    margin-bottom: 1.5rem;
+    padding: 0.85rem 1rem;
+    border-radius: 10px;
+    border: 1px solid #cbd5e1;
+    font-family: inherit;
+    transition: border-color 0.2s;
+}
+
+.login-card input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(33, 115, 54, 0.1);
+}
+
+.login-card button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.login-card button:hover {
+    background-color: var(--primary-hover);
+}
+
+.form-links {
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.form-links a {
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-weight: 500;
 }

@@ -17,53 +17,69 @@
 </head>
 
 <body>
-    <header>
-        <h1>Dashboards</h1>
-        <nav>
-            <p><a href="#">Home</a></p>
-            <p><a href="#about">About</a></p>
-            <p><a href="#pricing-info">Pricing</a></p>
-            <p><a href="#contact-info">Contact</a></p>
-        </nav>
-    </header>
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>Dashboards</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#pricing-info">Pricing</a></li>
+                    <li><a href="#contact-info">Contact</a></li>
+                </ul>
+            </nav>
+        </aside>
 
-    <main>
-        <section id="about">
-            <h2>About</h2>
-            <p>Infomation about the site will go in this section as it gets updated</p>
-        </section>
-        <section id="main-dashboard">
-            <h2>Main Dashboard</h2>
-            <p>The dashboard for the main part of the site will be designed to communicate infomation to users about the site. It will be used to convey any important information to the user bout the account and its activities.</p>
-        </section>
-        <section id="pricing-info">
-            <h2>Pricing Information</h2>
-            <p>A set of tiles with pricing information will go in this section</p>
-        </section>
-        <section id="dashboard-login">
-            <h2>Log-in to Dashboards</h2>
-            <form action="" method="post">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-                <button type="submit">Log-in</button>
-            </form>
-            <p>If you do not have an account, you can create one <a href="boards/create-account.html">here</a>.</p>
-            <p>If you have forgotten your password, you can reset it <a href="boards/forgot-password.html">here</a>.</p>
-        </section>
-    </main>
+        <main class="main-content">
+            <header class="top-bar">
+                <h2>Welcome Back</h2>
+                <div class="user-profile">Account Settings</div>
+            </header>
 
-    <footer id="contact-info">
-        <address>
-            <p>Company Name</p>
-            <p>City, State, Zip Code: </p>
-            <p>Phone Number: </p>
-            <p>Email Address: </p>
-        </address>
-    </footer>
+            <section id="about" class="card">
+                <h2>About</h2>
+                <p>Information about the site will go in this section as it gets updated.</p>
+            </section>
 
-    <script src="script/dashboard.js"></script>
+            <section id="main-dashboard" class="card">
+                <h2>Main Dashboard</h2>
+                <p>The dashboard for the main part of the site will be designed to communicate information...</p>
+            </section>
+
+            <section id="pricing-info" class="card">
+                <h2>Pricing Information</h2>
+                <div class="pricing-grid">
+                    <div class="price-tile"><h3>Basic</h3><p>$0/mo</p></div>
+                    <div class="price-tile"><h3>Pro</h3><p>$19/mo</p></div>
+                    <div class="price-tile"><h3>Enterprise</h3><p>Custom</p></div>
+                </div>
+            </section>
+
+            <section id="dashboard-login" class="card login-card">
+                <h2>Log-in</h2>
+                <form action="" method="post">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                    <button type="submit">Log-in</button>
+                </form>
+                <div class="form-links">
+                    <p>New here? <a href="boards/create-account.html">Create account</a></p>
+                    <p><a href="boards/forgot-password.html">Forgot password?</a></p>
+                </div>
+            </section>
+
+            <footer id="contact-info">
+                <address>
+                    <p><strong>Company Name</strong></p>
+                    <p>City, State, Zip Code | Phone Number</p>
+                </address>
+            </footer>
+        </main>
+    </div>
 </body>
 
 </html>
