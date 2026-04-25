@@ -1,0 +1,43 @@
+/* Root CSS Variables */
+:root {
+    --primary-color: #217336;
+    --secondary-color: #217599;
+    --accent-color: gold;
+    --text-color: #fff;
+    --success-color: green;
+    --error-color: red;
+    --warning-color: orange;
+    --info-color: blue;
+}
+/* Base Styling */
+html, body { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+header {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+main {
+    background-color: var(--secondary-color);
+    padding: 10px 20px;
+}
+footer {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/* Section Styles */
+section { 
+    height: 100vh;
+    width: auto;
+}
